@@ -1,10 +1,5 @@
 file = PHITS_input_MV_varian.inp
 $ 6 MV Varian Clinac 2100C Medical Linear Accelerator Model 
-$ Produced by Bryan Bednarz 
-
-$ XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX 
-
-$ MAIN INPUT DECK FOR 6 MV ACCELERATOR MODEL 
 
 [ P a r a m e t e r s ]
  icntl    =           11     # (D=0) 3:ECH 5:NOR 6:SRC 7,8:GSH 11:DSH 12:DUMP
@@ -225,4 +220,5 @@ $ *TR5 0 66 110.5 45 90 135 -45 90 45 90 180 90 1 $ 45 degrees
    output =    3            # (D=3) 0:draft, 1:line, 2:col, 3:line+col
      line =    0            # (D=0) 0:surface+mat, 1:+region
    shadow =    1            # (D=0) 0:no, 1:shadow
+
    epsout =    1            # (D=0) generate eps file by ANGEL
