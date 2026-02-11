@@ -1,0 +1,460 @@
+file = PHITS_input_MV_varian-mesh.inp
+$ 6 MV Varian Clinac 2100C Medical Linear Accelerator Model - mesh field 2
+
+[ P a r a m e t e r s ]
+ icntl    =           0    # (D=0) 3:ECH 5:NOR 6:SRC 7,8:GSH 11:DSH 12:DUMP
+ maxcas   =          100000000    # (D=10) number of particles per one batch (do 10^8 for sim)
+ maxbch   =           10    # (D=10) number of batches
+ negs     =           1     # (D=0) =1 EGS photon and electron
+ istdev   =          -1
+   emin(12) =     1.0e-2
+ file(6)  = varian.out # (D=phits.out) general output file name
+$ file(1)  = c:/phits        # (D=c:/phits) PHITS install folder name
+  
+[ Source ]
+  totfact =     1       # (D=1.0) global factor
+   s-type =     3           
+     proj = electron        # kind of incident particle  
+   e-type =     8	
+		ne = 61
+		 5.90 0.0037 
+    	 5.91 0.0060 
+    	 5.92 0.0094 
+    	 5.93 0.0147 
+    	 5.94 0.0224 
+    	 5.95 0.0337 
+    	 5.96 0.0500 
+    	 5.97 0.0728 
+    	 5.98 0.1044 
+    	 5.99 0.1474 
+    	 6.00 0.2047 
+    	 6.01 0.2798 
+    	 6.02 0.3764 
+    	 6.03 0.4983 
+    	 6.04 0.6492 
+    	 6.05 0.8322 
+    	 6.06 1.0500 
+    	 6.07 1.3036 
+    	 6.08 1.5928 
+    	 6.09 1.9152 
+    	 6.10 2.2662 
+    	 6.11 2.6390 
+    	 6.12 3.0241 
+    	 6.13 3.4104 
+    	 6.14 3.7849 
+    	 6.15 4.1337 
+    	 6.16 4.4429 
+    	 6.17 4.6992 
+    	 6.18 4.8914 
+    	 6.19 5.0104 
+    	 6.20 5.0507 
+    	 6.21 5.0104 
+    	 6.22 4.8914 
+    	 6.23 4.6992 
+    	 6.24 4.4429 
+    	 6.25 4.1337 
+    	 6.26 3.7849 
+    	 6.27 3.4104 
+    	 6.28 3.0241 
+    	 6.29 2.6390 
+    	 6.30 2.2662 
+    	 6.31 1.9152 
+    	 6.32 1.5928 
+    	 6.33 1.3036 
+    	 6.34 1.0500 
+    	 6.35 0.8322 
+    	 6.36 0.6492 
+    	 6.37 0.4983 
+    	 6.38 0.3764 
+    	 6.39 0.2798 
+    	 6.40 0.2047 
+    	 6.41 0.1474 
+    	 6.42 0.1044 
+    	 6.43 0.0728 
+    	 6.44 0.0500 
+    	 6.45 0.0337 
+    	 6.46 0.0224 
+    	 6.47 0.0147 
+    	 6.48 0.0094 
+    	 6.49 0.0060 
+    	 6.50 0.0037 
+       x0 =     0.00        # (D=0.0) x coordinate of Gaussian center[cm]
+$ This was sigma = 0.13 cm in MCNP - then becomes 0.3061cm with conversion
+	   x1 =     0.3061        #  FWHM in x direction[cm].
+       y0 =     0.0         # (D=0.0) y coordinate of Gaussian center[cm]
+	   y1 =     0.3061        # FWHM in y direction[cm]
+       z0 =    -0.25        # z coordinate of Gaussian center[cm]
+       z1 =      0          # FWHM in z direction[cm].
+      dir =      1          # z-direction of beam [isotropic]
+	  
+	  
+[ Material ]
+infl:{description/varian_clin_6_PHITS.mtl}
+infl:{description/MRCP-AM.material}
+$ Tumor 1.000 g/cm3
+MAT[703]
+     1000        -0.098
+     6000        -0.195
+     7000        -0.048
+     8000        -0.650
+     11000       -0.00099
+     15000       -0.00198
+     16000       -0.00252
+     17000       -0.00153
+     19000       -0.00198
+
+[mat name color]
+ mat name size color
+100 Adrenals 2.0 pastelblue
+200 Adrenals 2.0 pastelblue
+300 RemainingTissue 2.0 cyanblue
+301 RemainingTissue 2.0 cyanblue
+302 RemainingTissue 2.0 cyanblue
+303 RemainingTissue 2.0 cyanblue
+400 RemainingTissue 2.0 cyanblue
+401 RemainingTissue 2.0 cyanblue
+402 RemainingTissue 2.0 cyanblue
+403 RemainingTissue 2.0 cyanblue
+404 RemainingTissue 2.0 cyanblue
+405 RemainingTissue 2.0 cyanblue
+500 RemainingTissue 2.0 cyanblue
+501 RemainingTissue 2.0 cyanblue
+600 RemainingTissue 2.0 cyanblue
+700 RemainingTissue 2.0 cyanblue
+800 RemainingTissue 2.0 cyanblue
+801 RemainingTissue 2.0 cyanblue
+802 RemainingTissue 2.0 cyanblue
+803 RemainingTissue 2.0 cyanblue
+804 RemainingTissue 2.0 cyanblue
+805 RemainingTissue 2.0 cyanblue
+806 RemainingTissue 2.0 cyanblue
+807 RemainingTissue 2.0 cyanblue
+808 RemainingTissue 2.0 cyanblue
+900 Blood 2.0 red
+910 Blood 2.0 red
+1000 Blood 2.0 red
+1010 Blood 2.0 red
+1100 Blood 2.0 red
+1110 Blood 2.0 red
+1200 Blood 2.0 red
+1210 Blood 2.0 red
+1300 Bone 2.0 white
+1400 Spongiosa 2.0 gray
+1500 BoneMarrow 2.0 darkred
+1600 Bone 2.0 white
+1700 Spongiosa 2.0 gray
+1800 BoneMarrow 2.0 darkred
+1900 Bone 2.0 white
+2000 Spongiosa 2.0 gray
+2100 BoneMarrow 2.0 darkred
+2200 Bone 2.0 white
+2300 Spongiosa 2.0 gray
+2400 Bone 2.0 white
+2500 Spongiosa 2.0 gray
+2600 Bone 2.0 white
+2700 Spongiosa 2.0 gray
+2800 Bone 2.0 white
+2900 Spongiosa 2.0 gray
+3000 BoneMarrow 2.0 darkred
+3100 Bone 2.0 white
+3200 Spongiosa 2.0 gray
+3300 BoneMarrow 2.0 darkred
+3400 Bone 2.0 white
+3500 Spongiosa 2.0 gray
+3600 BoneMarrow 2.0 darkred
+3700 Bone 2.0 white
+3800 Spongiosa 2.0 gray
+3900 Bone 2.0 white
+4000 Spongiosa 2.0 gray
+4100 Bone 2.0 white
+4200 Spongiosa 2.0 gray
+4300 Bone 2.0 white
+4400 Spongiosa 2.0 gray
+4500 Bone 2.0 white
+4600 Spongiosa 2.0 gray
+4700 Bone 2.0 white
+4800 Spongiosa 2.0 gray
+4900 Bone 2.0 white
+5000 Spongiosa 2.0 gray
+5100 Bone 2.0 white
+5200 Spongiosa 2.0 gray
+5300 Bone 2.0 white
+5400 Spongiosa 2.0 gray
+5500 Bone 2.0 white
+5600 Spongiosa 2.0 gray
+5700 Cartilage 2.0 lightgray
+5800 Cartilage 2.0 lightgray
+6100 Brain 2.0 pastelbrown
+6200 AdiposeTissue 2.0 magenta
+6300 Breast 2.0 purple
+6400 AdiposeTissue 2.0 magenta
+6500 Breast 2.0 purple
+6600 Eyes 2.0 darkgray
+6601 Eyes 2.0 darkgray
+6700 Eyes 2.0 darkgray
+6701 Eyes 2.0 darkgray
+6702 Eyes 2.0 darkgray
+6800 Eyes 2.0 darkgray
+6801 Eyes 2.0 darkgray
+6900 Eyes 2.0 darkgray
+6901 Eyes 2.0 darkgray
+6902 Eyes 2.0 darkgray
+7000 GallBladderWall 2.0 cyanblue
+7100 GallBladder 2.0 cyanblue
+7200 Stomach 2.0 pastelgreen
+7201 Stomach 2.0 pastelgreen
+7202 Stomach 2.0 pastelgreen
+7203 Stomach 2.0 pastelgreen
+7300 Intest.Contents 2.0 pastelmagenta
+7400 SmallIntestine 2.0 yellowgreen
+7401 SmallIntestine 2.0 yellowgreen
+7402 SmallIntestine 2.0 yellowgreen
+7403 SmallIntestine 2.0 yellowgreen
+7500 Intest.Contents 2.0 pastelmagenta
+7501 Intest.Contents 2.0 pastelmagenta
+7600 LargeIntestine 2.0 green
+7601 LargeIntestine 2.0 green
+7602 LargeIntestine 2.0 green
+7700 Intest.Contents 2.0 pastelmagenta
+7800 LargeIntestine 2.0 green
+7801 LargeIntestine 2.0 green
+7802 LargeIntestine 2.0 green
+7900 Intest.Contents 2.0 pastelmagenta
+8000 LargeIntestine 2.0 green
+8001 LargeIntestine 2.0 green
+8002 LargeIntestine 2.0 green
+8100 Intest.Contents 2.0 pastelmagenta
+8200 LargeIntestine 2.0 green
+8201 LargeIntestine 2.0 green
+8202 LargeIntestine 2.0 green
+8300 Intest.Contents 2.0 pastelmagenta
+8400 LargeIntestine 2.0 green
+8401 LargeIntestine 2.0 green
+8402 LargeIntestine 2.0 green
+8500 Intest.Contents 2.0 pastelmagenta
+8600 LargeIntestine 2.0 green
+8700 Heart 2.0 orangeyellow
+8800 Blood 2.0 red
+8900 LeftKidneyCortex 2.0 orangeyellow
+9000 LeftKidneyMedulla 2.0 pastelyellow
+9100 LeftKidneyPelvis 2.0 yellow
+9200 RightKidneyCortex 2.0 orangeyellow
+9300 RightKidneyMedulla 2.0 pastelyellow
+9400 RightKidneyPelvis 2.0 yellow
+9500 Liver 2.0 brown
+9700 LungTissue 2.0 winered
+9900 LungTissue 2.0 winered
+10000 Lymph 2.0 violet
+10100 Lymph 2.0 violet
+10200 Lymph 2.0 violet
+10300 Lymph 2.0 violet
+10400 Lymph 2.0 violet
+10500 Lymph 2.0 violet
+10600 Muscle 2.0 orange
+10700 Muscle 2.0 orange
+10800 Muscle 2.0 orange
+10900 Muscle 2.0 orange
+11000 Oesophagus 2.0 cyan
+11001 Oesophagus 2.0 cyan
+11002 Oesophagus 2.0 cyan
+11003 Intest.Contents 2.0 pastelmagenta
+11300 Pancreas 2.0 darkbrown
+11400 RemainingTissue 2.0 cyanblue
+11500 Prostate 2.0 blue
+11600 AdiposeTissue 2.0 magenta
+11700 AdiposeTissue 2.0 magenta
+11800 AdiposeTissue 2.0 magenta
+11900 AdiposeTissue 2.0 magenta
+12000 RemainingTissue 2.0 cyanblue
+12100 RemainingTissue 2.0 cyanblue
+12200 Skin 2.0 pastelpink
+12201 Skin 2.0 pastelpink
+12300 Skin 2.0 pastelpink
+12301 Skin 2.0 pastelpink
+12400 Skin 2.0 pastelpink
+12401 Skin 2.0 pastelpink
+12500 Skin 2.0 pastelpink
+12501 Skin 2.0 pastelpink
+12600 RemainingTissue 2.0 cyanblue
+12700 Spleen 2.0 darkgreen
+12800 Teeth 2.0 pastelyellow
+12801 RemainingTissue 2.0 cyanblue
+12900 Testes 2.0 pastelcyan
+13000 Testes 2.0 pastelcyan
+13100 RemainingTissue 2.0 cyanblue
+13200 Thyroid 2.0 mossgreen
+13300 RemainingTissue 2.0 cyanblue
+13301 RemainingTissue 2.0 cyanblue
+13400 RemainingTissue 2.0 cyanblue
+13500 RemainingTissue 2.0 cyanblue
+13600 RemainingTissue 2.0 cyanblue
+13700 UrinaryBladder 2.0 pastelpurple
+13701 UrinaryBladder 2.0 pastelpurple
+13800 Urine 2.0 purple
+14000 Air 2.0 white
+703 tumor 2.0 green
+91    Tungsten        2.0  darkgray
+92    Copper          2.0  camel
+93    Iron            2.0  pastelblue
+94    Tantalum        2.0  pastelyellow
+95    lead            2.0  pastelgreen
+97    Air             2.0  lightgray
+
+[ Surface ]
+infl:{description/varian_mlc_90_PHITS.geo}
+infl:{description/varian_clin_6_PHITS_mesh.geo} [1 - 97]
+10  rpp -30.8854 30.8854 -18.56301 18.56301 -98.00236 98.00236  $ Phantom box
+20  rpp -31.0854 31.0854 -18.76301 18.76301 -98.20236 98.20236
+90  box -1000 -1000 -1000 2000 0 0 0 2000 0 0 0 2000         $ World boundary
+11 SO 1000.0
+703 5 s -9.75 1.23047 45 1.15
+
+[ Cell ]
+infl:{description/mlc_7_g_08_PHITS-mesh-field2.cel}
+infl:{description/varian_clin_6_PHITS_mesh.cel}
+infl:{description/MRCP-AM-varian-mesh.cell}
+999 -1 11
+
+[ Volume ]
+703   6.370626303
+
+[ Transform ]
+$                            6 x 6 
+*TR1 0 0 0 0 90 90 90 1.718358 88.28164 90 91.71836 1.718358 
+*TR2 0 0 0 0 90 90 90 1.718358 91.71836 90 88.28164 1.718358
+*TR3 0 0 0 1.718358 90 88.28164 90 0 90 91.71836 90 1.718358
+*TR4 0 0 0 1.718358 90 91.71836 90 0 90 88.28164 90 1.718358
+$ 
+$ ******************************************************************************** 
+$ phantom transformation 
+$Field 1
+$*tr5  9.75 45 98.76953  0 90 270  90 90 0  90 180 90  1
+$Field 2
+*tr5  -1.23047 45 90.25  90 90 180  0 90 90  90 180 90  1
+$Field 3
+$*tr5  -9.75 45 101.23047  180 90 90  90 90 180  90 180 90  1
+$Field 4
+$*tr5  1.23047 45 109.75  270 90 0  180 90 270  90 180 90  1
+
+[ T - T r a c k ] 
+    title = Track in xyz mesh
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =  -70.000000      # minimum value of x-mesh points
+     xmax =   70.000000      # maximum value of x-mesh points
+       nx =   280            # number of x-mesh points
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -25.000000      # minimum value of y-mesh points
+     ymax =   25.000000      # maximum value of y-mesh points
+       ny =    5            # number of y-mesh points   
+    z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   -25.00000      # minimum value of z-mesh points
+     zmax =   115.00000      # maximum value of z-mesh points
+       nz =   280            # number of z-mesh points
+  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
+     axis =   xz            # axis of output
+     file = track-mesh.out       # file name of output for the above axis
+     part = electron photon
+   e-type =    1            # e-mesh is given by the below data
+       ne =    1            # number of e-mesh points
+             0.0  1000.0
+     unit =    1            # unit is [1/cm^2/source]
+    resol =    15
+    width =   0.01
+   epsout =    1            # (D=0) generate eps file by ANGEL   
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+    
+[ T - T r a c k ] off
+    title = Track at phantom
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =  -20      # minimum value of x-mesh points
+     xmax =   40      # maximum value of x-mesh points
+       nx =   60            # number of x-mesh points
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -45      # minimum value of y-mesh points
+     ymax =   135      # maximum value of y-mesh points
+       ny =    180            # number of y-mesh points
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   90      # minimum value of z-mesh points
+     zmax =   110      # maximum value of z-mesh points
+       nz =   5            # number of z-mesh points
+  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
+     axis =   yx            # axis of output
+     file = track-at-mesh.out       # file name of output for the above axis
+     part = electron photon
+   e-type =    1            # e-mesh is given by the below data
+       ne =    1            # number of e-mesh points
+             0.0  1000.0
+     unit =    1            # unit is [1/cm^2/source]
+    resol =    15
+    width =   0.01
+   epsout =    1            # (D=0) generate eps file by ANGEL   
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+
+
+[ T - deposit ] off
+     mesh =    xyz            # mesh type is xyz scoring mesh
+   x-type =      2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =    -37.8854       # minimum value of x-mesh points
+     xmax =     37.8854       # maximum value of x-mesh points
+       nx =     60            # number of x-mesh points
+   y-type =      1            # y-mesh is given by the below data
+       ny =      1            # number of y-mesh points
+           -24.56301  24.56301
+   z-type =      2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =    -98.00236      # minimum value of z-mesh points
+     zmax =     98.00236      # maximum value of z-mesh points
+       nz =    180            # number of z-mesh points
+     axis =     xz            # axis of output
+     file = AM_dosevisualization_MESH.dat  # file name of output for the above axis
+    ginfo =      0            # (D=0) 0:no, 1:show in graph, 2:add file
+$    resol =     15            # (D=1) resolution of gshow or rshow
+$    width =   0.01            # (D=0.5) width of lines for gshow or rshow
+   epsout =      1            # (D=0) generate eps file by ANGEL
+   unit = 0
+
+[ T - Gshow ] off
+     mesh =    xyz            # mesh type is xyz scoring mesh
+   x-type =      2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =    -37.8854       # minimum value of x-mesh points
+     xmax =     37.8854       # maximum value of x-mesh points
+       nx =     60            # number of x-mesh points
+   y-type =      1            # y-mesh is given by the below data
+       ny =      1            # number of y-mesh points
+           -24.56301  24.56301
+   z-type =      2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =    -98.00236      # minimum value of z-mesh points
+     zmax =     98.00236      # maximum value of z-mesh points
+       nz =    180            # number of z-mesh points
+     axis =     xz            # axis of output
+     file = voxel-AM_vis-Varian.dat  # file name of output for the above axis
+   output =      2            # (D=2) 1:bnd, 2:bnd+mat, 3:bnd+num 4:bnd+mat+num
+    ginfo =      0            # (D=0) 0:no, 1:show in graph, 2:add file
+    resol =     15            # (D=1) resolution of gshow or rshow
+    width =   0.01            # (D=0.5) width of lines for gshow or rshow
+   epsout =      1            # (D=0) generate eps file by ANGEL
+   
+[t-deposit] 
+    title = Deposit energy in a certain region
+     mesh = reg
+      reg = 100 200 {300-303} {400-405} 500 501 600 700 703 {800-808} 910 1000
+             1010 1100 1110 1200 1210 1300 1400 1500 1600 1700 1800 1900 2000
+             2100 2200 2300 2400 2500 2600 2700 2800 2900 3000 3100 3200 3300
+             3400 3500 3600 3700 3800 3900 4100 4200 4300 4400 4500 4600 4700 
+             4800 4900 5000 5100 5200 5300 5400 5500 5600 5700 5800 6100 6200
+             6300 6400 6500 6600 {6700-6702} 6800 6801 {6900-6902} 7000 7100 {7200-7203} 
+             7300 {7400-7403} 7500 7501 {7600-7602} 7700 {7800-7802} 7900 {8000-8002}
+             8100 8200 8300 {8400-8402} 8500 8600 8700 8800 8900 9000 9100 9200 9300
+             9400 9500 9700 9900 10000 10100 10200 10300 10400 10500 10600 10700 10800
+             10900 {11000-11003} 11300 11400 11500 11600 11700 11800 11900 12000 12100
+             12200 12201 12300 12301 12400 12401 12500 12501 12600 12700 12800 12801
+             12900 13000 13100 13200 13300 13301 13400 13500 13600 13700 13701 13800
+             14000
+     axis = reg
+ material = all
+   output = dose
+     file = Result_MESH-AM_VARIAN-field2.out
+     unit = 0   
+     
+[end]
