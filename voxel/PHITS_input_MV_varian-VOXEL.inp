@@ -1,0 +1,298 @@
+file = PHITS_input_MV_varian-VOXEL.inp
+$ 6 MV Varian Clinac 2100C Medical Linear Accelerator Model - voxel field 3
+[ P a r a m e t e r s ]
+ icntl    =           0    # (D=0) 3:ECH 5:NOR 6:SRC 7,8:GSH 11:DSH 12:DUMP
+ maxcas   =      100000000      # (D=10) number of particles per one batch (do 10^8 for sim)
+ maxbch   =           10    # (D=10) number of batches
+ negs     =           1     # (D=0) =1 EGS photon and electron
+ istdev   =          -1
+  emin(12) =     1.0e-2
+ file(6)  = varian.out # (D=phits.out) general output file name
+$ file(1)  = c:/phits        # (D=c:/phits) PHITS install folder name
+
+[ Source ]
+ # normalization for electron per second
+  totfact =     1        # (D=1.0) global factor
+   s-type =     3           
+     proj = electron        # kind of incident particle  
+   e-type =     8	
+		ne = 61
+		 5.90 0.0037 
+    	 5.91 0.0060 
+    	 5.92 0.0094 
+    	 5.93 0.0147 
+    	 5.94 0.0224 
+    	 5.95 0.0337 
+    	 5.96 0.0500 
+    	 5.97 0.0728 
+    	 5.98 0.1044 
+    	 5.99 0.1474 
+    	 6.00 0.2047 
+    	 6.01 0.2798 
+    	 6.02 0.3764 
+    	 6.03 0.4983 
+    	 6.04 0.6492 
+    	 6.05 0.8322 
+    	 6.06 1.0500 
+    	 6.07 1.3036 
+    	 6.08 1.5928 
+    	 6.09 1.9152 
+    	 6.10 2.2662 
+    	 6.11 2.6390 
+    	 6.12 3.0241 
+    	 6.13 3.4104 
+    	 6.14 3.7849 
+    	 6.15 4.1337 
+    	 6.16 4.4429 
+    	 6.17 4.6992 
+    	 6.18 4.8914 
+    	 6.19 5.0104 
+    	 6.20 5.0507 
+    	 6.21 5.0104 
+    	 6.22 4.8914 
+    	 6.23 4.6992 
+    	 6.24 4.4429 
+    	 6.25 4.1337 
+    	 6.26 3.7849 
+    	 6.27 3.4104 
+    	 6.28 3.0241 
+    	 6.29 2.6390 
+    	 6.30 2.2662 
+    	 6.31 1.9152 
+    	 6.32 1.5928 
+    	 6.33 1.3036 
+    	 6.34 1.0500 
+    	 6.35 0.8322 
+    	 6.36 0.6492 
+    	 6.37 0.4983 
+    	 6.38 0.3764 
+    	 6.39 0.2798 
+    	 6.40 0.2047 
+    	 6.41 0.1474 
+    	 6.42 0.1044 
+    	 6.43 0.0728 
+    	 6.44 0.0500 
+    	 6.45 0.0337 
+    	 6.46 0.0224 
+    	 6.47 0.0147 
+    	 6.48 0.0094 
+    	 6.49 0.0060 
+    	 6.50 0.0037 
+       x0 =     0.00        # (D=0.0) x coordinate of Gaussian center[cm]
+$ This was sigma = 0.13 cm in MCNP - then becomes 0.3061cm with conversion
+	   x1 =     0.3061        #  FWHM in x direction[cm].
+       y0 =     0.0         # (D=0.0) y coordinate of Gaussian center[cm]
+	   y1 =     0.3061        # FWHM in y direction[cm]
+       z0 =    -0.25        # z coordinate of Gaussian center[cm]
+       z1 =      0          # FWHM in z direction[cm].
+      dir =      1          # z-direction of beam [isotropic]
+	  
+	  
+[ Material ]
+infl:{description/varian_clin_6_PHITS.mtl}
+infl:{description/VOXEL-MATERIAL.mtl}
+$ Tumor 1.000 g/cm3
+MAT[703]
+     1000        -0.098
+     6000        -0.195
+     7000        -0.048
+     8000        -0.650
+     11000       -0.00099
+     15000       -0.00198
+     16000       -0.00252
+     17000       -0.00153
+     19000       -0.00198
+
+[ mat name color ]
+   mat   name   size  color
+    1    Teeth           2.0  pastelyellow
+    2    Bone            2.0  white
+ {3-21}  Spongiosa       2.0  gray
+ {22-25} BoneMarrow      2.0  darkred
+   26    Cartilage       2.0  lightgray
+   27    Skin            2.0  pastelpink
+   28    Blood           2.0  red
+   29    Muscle          2.0  orange
+   30    Liver           2.0  brown
+   31    Pancreas        2.0  darkbrown
+   32    Brain           2.0  pastelbrown
+   33    Heart           2.0  orangeyellow
+   34    Eyes            2.0  darkgray
+   35    Kidneys         2.0  yellow
+   36    Stomach         2.0  pastelgreen
+   37    SmallIntestine  2.0  yellowgreen
+   38    LargeIntestine  2.0  green
+   39    Spleen          2.0  darkgreen
+   40    Thyroid         2.0  mossgreen
+   41    UrinaryBladder  2.0  bluegreen
+   42    Testes          2.0  pastelcyan
+   43    Adrenals        2.0  pastelblue
+   44    Oesophagus      2.0  cyan
+   45    RemainingTissue 2.0  cyanblue
+   46    Prostate        2.0  blue
+   47    Lymph           2.0  violet
+   48    Breast          2.0  purple
+   49    AdiposeTissue   2.0  magenta
+   50    LungTissue      2.0  winered
+   51    Intest.Contents 2.0  pastelmagenta
+   52    Urine           2.0  pastelpurple
+   53    Air             2.0  white
+   91    Tungsten        2.0  darkgray
+   92    Copper          2.0  camel
+   93    Iron            2.0  pastelblue
+   94    Tantalum        2.0  pastelyellow
+   95    lead            2.0  pastelgreen
+   97    Air             2.0  lightgray
+  703    tumor           2.0  green
+
+[ Surface ]
+infl:{description/varian_mlc_90_PHITS.geo}
+infl:{description/varian_clin_6_PHITS.geo} [1 - 97]
+infl:{description/VOXEL-SUR.geo}
+703 5 s -9.75 1.23047 45 1.15
+
+[ Cell ]
+infl:{description/mlc_7_g_08_PHITS-field3.cel}
+infl:{description/varian_clin_6_PHITS_voxel.cel}
+infl:{description/VOXEL_CELL.cel}
+$999 -1 11
+666    -1     666
+
+[ Volume ]
+infl:{description/VOXEL-VOL.txt}
+
+[ Transform ]
+$                            6 x 6 
+*TR1 0 0 0 0 90 90 90 1.718358 88.28164 90 91.71836 1.718358 
+*TR2 0 0 0 0 90 90 90 1.718358 91.71836 90 88.28164 1.718358
+*TR3 0 0 0 1.718358 90 88.28164 90 0 90 91.71836 90 1.718358
+*TR4 0 0 0 1.718358 90 91.71836 90 0 90 88.28164 90 1.718358
+$ 
+$ ******************************************************************************** 
+$ phantom transformation 
+$Field 1
+$*tr5  9.75 45 98.76953  0 90 270  90 90 0  90 180 90  1
+$Field 2
+$*tr5  -1.23047 45 90.25  90 90 180  0 90 90  90 180 90  1
+$Field 3
+*tr5  -9.75 45 101.23047  180 90 90  90 90 180  90 180 90  1
+$Field 4
+$*tr5  1.23047 45 109.75  270 90 0  180 90 270  90 180 90  1
+
+[ T - T r a c k ] 
+    title = Track in xyz mesh
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =  -70.000000      # minimum value of x-mesh points
+     xmax =   70.000000      # maximum value of x-mesh points
+       nx =   280            # number of x-mesh points
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -1      # minimum value of y-mesh points
+     ymax =   1      # maximum value of y-mesh points
+       ny =    1            # number of y-mesh points
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   -25.00000      # minimum value of z-mesh points
+     zmax =   115.00000      # maximum value of z-mesh points
+       nz =   280            # number of z-mesh points
+  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
+     axis =   xz            # axis of output
+     file = track-voxel.out       # file name of output for the above axis
+     part = electron photon
+   e-type =    1            # e-mesh is given by the below data
+       ne =    1            # number of e-mesh points
+             0.0  1000.0
+     unit =    1            # unit is [1/cm^2/source]
+    resol =    15
+    width =   0.01
+   epsout =    1            # (D=0) generate eps file by ANGEL   
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+
+[ T - T r a c k ] off
+    title = Track at phantom
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =  -20      # minimum value of x-mesh points
+     xmax =   40      # maximum value of x-mesh points
+       nx =   60            # number of x-mesh points
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -45      # minimum value of y-mesh points
+     ymax =   135      # maximum value of y-mesh points
+       ny =    180            # number of y-mesh points
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   90      # minimum value of z-mesh points
+     zmax =   110      # maximum value of z-mesh points
+       nz =   5            # number of z-mesh points
+  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
+     axis =   yx            # axis of output
+     file = track-at-voxel.out       # file name of output for the above axis
+     part = electron photon
+   e-type =    1            # e-mesh is given by the below data
+       ne =    1            # number of e-mesh points
+             0.0  1000.0
+     unit =    1            # unit is [1/cm^2/source]
+    resol =    15
+    width =   0.01
+   epsout =    1            # (D=0) generate eps file by ANGEL   
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+
+
+[ T - deposit ] off
+     mesh =    xyz            # mesh type is xyz scoring mesh
+   x-type =      2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =    -37.8854       # minimum value of x-mesh points
+     xmax =     37.8854       # maximum value of x-mesh points
+       nx =     60            # number of x-mesh points
+$   y-type =      1            # y-mesh is given by the below data
+$       ny =      1            # number of y-mesh points
+$           -24.56301  24.56301
+   y-type =      2            # y-mesh is linear given by zmin, zmax and nz
+     ymin =    -98.00236      # minimum value of y-mesh points
+     ymax =     98.00236      # maximum value of y-mesh points
+       ny =    180            # number of y-mesh points
+$   z-type =      2            # z-mesh is linear given by zmin, zmax and nz
+$     zmin =    -98.00236      # minimum value of z-mesh points
+$     zmax =     98.00236      # maximum value of z-mesh points
+$       nz =    180            # number of z-mesh points
+   z-type =      1            # y-mesh is given by the below data       
+       nz =      1            # number of y-mesh points
+           60  100
+     axis =     xy            # axis of output
+     file = AM_dose_VOXEL.dat  # file name of output for the above axis
+    ginfo =      0            # (D=0) 0:no, 1:show in graph, 2:add file
+    resol =     15            # (D=1) resolution of gshow or rshow
+    width =   0.01            # (D=0.5) width of lines for gshow or rshow
+   epsout =      1            # (D=0) generate eps file by ANGEL
+   unit = 0
+
+[ T - Gshow ] off
+     mesh =    xyz            # mesh type is xyz scoring mesh
+   x-type =      2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =    -37.8854       # minimum value of x-mesh points
+     xmax =     37.8854       # maximum value of x-mesh points
+       nx =     60            # number of x-mesh points
+   y-type =      1            # y-mesh is given by the below data
+       ny =      1            # number of y-mesh points
+           -24.56301  24.56301
+   z-type =      2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =    -98.00236      # minimum value of z-mesh points
+     zmax =     98.00236      # maximum value of z-mesh points
+       nz =    180            # number of z-mesh points
+     axis =     xz            # axis of output
+     file = voxel-AM_vis-Varian.dat  # file name of output for the above axis
+   output =      2            # (D=2) 1:bnd, 2:bnd+mat, 3:bnd+num 4:bnd+mat+num
+    ginfo =      0            # (D=0) 0:no, 1:show in graph, 2:add file
+    resol =     15            # (D=1) resolution of gshow or rshow
+    width =   0.01            # (D=0.5) width of lines for gshow or rshow
+   epsout =      1            # (D=0) generate eps file by ANGEL
+   
+[t-deposit] 
+    title = Deposit energy in a certain region
+     mesh = reg
+      reg = { 1 - 141 } 703
+     axis = reg
+ material = all
+   output = dose
+     file = Result_VOXEL-AM_VARIAN-field3.out
+     unit = 0   
+     
+[end]
