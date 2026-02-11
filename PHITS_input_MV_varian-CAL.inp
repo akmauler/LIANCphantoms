@@ -1,0 +1,295 @@
+file = PHITS_input_MV_varian-CAL.inp
+$ 6 MV Varian Clinac 2100C Medical Linear Accelerator Model - Calibration
+
+[ P a r a m e t e r s ]
+ icntl    =           0     # (D=0) 3:ECH 5:NOR 6:SRC 7,8:GSH 11:DSH 12:DUMP
+ maxcas   =        100000000    # (D=10) number of particles per one batch (do 10^8 for sim)
+ maxbch   =          4     # (D=10) number of batches
+ negs     =           1     # (D=0) =1 EGS photon and electron
+  istdev  =  -1
+ emin(12) =     1.0e-2
+ file(6)  = varian.out # (D=phits.out) general output file name
+$ file(1)  = c:/phits        # (D=c:/phits) PHITS install folder name
+
+[ Source ]
+  totfact =     1       # (D=1.0) global factor
+   s-type =     3           
+     proj = electron        # kind of incident particle  
+   e-type =     8	
+		ne = 61
+		 5.90 0.0037 
+    	 5.91 0.0060 
+    	 5.92 0.0094 
+    	 5.93 0.0147 
+    	 5.94 0.0224 
+    	 5.95 0.0337 
+    	 5.96 0.0500 
+    	 5.97 0.0728 
+    	 5.98 0.1044 
+    	 5.99 0.1474 
+    	 6.00 0.2047 
+    	 6.01 0.2798 
+    	 6.02 0.3764 
+    	 6.03 0.4983 
+    	 6.04 0.6492 
+    	 6.05 0.8322 
+    	 6.06 1.0500 
+    	 6.07 1.3036 
+    	 6.08 1.5928 
+    	 6.09 1.9152 
+    	 6.10 2.2662 
+    	 6.11 2.6390 
+    	 6.12 3.0241 
+    	 6.13 3.4104 
+    	 6.14 3.7849 
+    	 6.15 4.1337 
+    	 6.16 4.4429 
+    	 6.17 4.6992 
+    	 6.18 4.8914 
+    	 6.19 5.0104 
+    	 6.20 5.0507 
+    	 6.21 5.0104 
+    	 6.22 4.8914 
+    	 6.23 4.6992 
+    	 6.24 4.4429 
+    	 6.25 4.1337 
+    	 6.26 3.7849 
+    	 6.27 3.4104 
+    	 6.28 3.0241 
+    	 6.29 2.6390 
+    	 6.30 2.2662 
+    	 6.31 1.9152 
+    	 6.32 1.5928 
+    	 6.33 1.3036 
+    	 6.34 1.0500 
+    	 6.35 0.8322 
+    	 6.36 0.6492 
+    	 6.37 0.4983 
+    	 6.38 0.3764 
+    	 6.39 0.2798 
+    	 6.40 0.2047 
+    	 6.41 0.1474 
+    	 6.42 0.1044 
+    	 6.43 0.0728 
+    	 6.44 0.0500 
+    	 6.45 0.0337 
+    	 6.46 0.0224 
+    	 6.47 0.0147 
+    	 6.48 0.0094 
+    	 6.49 0.0060 
+    	 6.50 0.0037 
+       x0 =     0.00        # (D=0.0) x coordinate of Gaussian center[cm]
+	   x1 =     0.3061        #  FWHM in x direction[cm].
+       y0 =     0.0         # (D=0.0) y coordinate of Gaussian center[cm]
+	   y1 =     0.3061        # FWHM in y direction[cm]
+       z0 =    -0.25        # z coordinate of Gaussian center[cm]
+       z1 =      0          # FWHM in z direction[cm].
+      dir =      1          # z-direction of beam [isotropic]
+	  
+	  
+[ Material ]
+infl:{files/varian_clin_6_PHITS.mtl}
+
+$ TLD-100H (density = 2.48 g/cm3)
+MAT[ 1 ]
+        6Li  -0.0197
+        7Li  -0.2465
+        F    -0.7288
+        Mg   -0.0020
+        Cu   -0.0004
+        P    -0.0030
+
+$ --- Polyethylene, Density = 0.93 g/cm³
+MAT[ 2 ]  H  4  C  2
+
+$ --- Tissue, Density = 1.00 g/cm³
+MAT[ 3 ]  H  -0.104472  C  -0.232190  N  -0.024880  O  -0.630238
+     Na -0.001130  Mg -0.000130  P  -0.001330  S  -0.001990
+     Cl -0.001340  K  -0.001990  Ca -0.000230  Fe -0.000050
+     Zn -0.000030
+     
+$ --- yoga mat, Density = 0.55 g/cm³
+MAT[ 4 ]  C 2 H 3 Cl 1
+
+
+[ Surface ]
+infl:{files/varian_mlc_90_PHITS.geo}
+infl:{files/varian_clin_6_PHITS.geo} [1 - 97]
+600 RPP -0.87 -0.55  -0.16 0.16  100.01 100.099  $ TLD100H
+601 RPP -5 5  -5 5  98.5 100  $ Bolus
+602 RPP -4.5 4.5  -4.5 4.5  100 100.109  $ plastic
+603 RPP -10 10  -10 10  100.109 102.109 $ mat that the TLDs are on
+
+[ Cell ]
+infl:{files/mlc_7_g_08_PHITS.cel}
+infl:{files/varian_clin_6_PHITS.cel}
+infl:{files/TLDandbolus.cell}
+999 -1 11
+
+[ Volume ]
+    reg     vol
+    601     0.0091136
+    603     0.0091136
+    604     0.0091136
+    605     0.0091136
+    606     0.0091136
+    607     0.0091136
+    608     0.0091136
+    609     0.0091136
+    610     0.0091136
+    611     0.0091136
+    612     0.0091136
+    613     0.0091136
+    614     0.0091136
+    615     0.0091136
+    616     0.0091136
+    617     0.0091136
+    618     0.0091136
+    619     0.0091136
+    620     0.0091136
+    621     0.0091136
+    622     0.0091136
+    623     0.0091136
+    624     0.0091136
+    625     0.0091136
+    626     0.0091136
+    627     0.0091136
+    628     0.0091136
+    629     0.0091136
+    630     0.0091136
+    631     0.0091136
+    632     0.0091136
+    633     0.0091136
+    634     0.0091136
+    635     0.0091136
+    636     0.0091136
+    637     0.0091136
+    638     0.0091136
+    639     0.0091136
+    640     0.0091136
+    641     0.0091136
+
+[ Transform ]
+$                           10 x 10 SAD=100 cm
+*TR1 0 0 0 0 90 90 90 2.862405 87.13759 90 92.86241 2.862405
+*TR2 0 0 0 0 90 90 90 2.862405 92.86241 90 87.13759 2.862405 
+*TR3 0 0 0 2.862405 90 87.13759 90 0 90 92.86241 90 2.862405 
+*TR4 0 0 0 2.862405 90 92.86241 90 0 90 87.13759 90 2.862405
+
+[ T - T r a c k ] off
+    title = Track in xyz mesh (xz)
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =  -75.000000      # minimum value of x-mesh points
+     xmax =   75.000000      # maximum value of x-mesh points
+       nx =   50            # number of x-mesh points
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -100.000000      # minimum value of y-mesh points
+     ymax =   100.000000      # maximum value of y-mesh points
+       ny =    1            # number of y-mesh points
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   -75.00000      # minimum value of z-mesh points
+     zmax =   101.00000      # maximum value of z-mesh points
+       nz =   90            # number of z-mesh points
+  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
+     axis =   xz            # axis of output
+     file = trackofaccelerator.out       # file name of output for the above axis
+     part = electron photon
+   e-type =    1            # e-mesh is given by the below data
+       ne =    1            # number of e-mesh points
+             0.0  1000.0
+     unit =    1            # unit is [1/cm^2/source]
+   epsout =    1            # (D=0) generate eps file by ANGEL   
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+
+[ T - T r a c k ] off
+    title = Track in xyz mesh (xy)
+     mesh =  xyz            # mesh type is xyz scoring mesh
+   x-type =    2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =   -10.000000      # minimum value of x-mesh points
+     xmax =   10.000000      # maximum value of x-mesh points
+       nx =   300            # number of x-mesh points
+   y-type =    2            # y-mesh is linear given by ymin, ymax and ny
+     ymin =  -10.000000      # minimum value of y-mesh points
+     ymax =   10.000000      # maximum value of y-mesh points
+       ny =    300            # number of y-mesh points
+   z-type =    2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =   100.01000      # minimum value of z-mesh points
+     zmax =   100.09900      # maximum value of z-mesh points
+       nz =   1            # number of z-mesh points
+  2D-type =    3            # 1:Cont, 2:Clust, 3:Color, 4:xyz, 5:mat, 6:Clust+Cont, 7:Col+Cont
+     axis =   xy            # axis of output
+     file = trackatTLD.out       # file name of output for the above axis
+     part = electron photon
+   e-type =    1            # e-mesh is given by the below data
+       ne =    1            # number of e-mesh points
+             0.0  1000.0
+     unit =    1            # unit is [1/cm^2/source]
+   epsout =    1            # (D=0) generate eps file by ANGEL   
+    gshow =    1            # 0: no 1:bnd, 2:bnd+mat, 3:bnd+reg 4:bnd+lat
+
+[ T - deposit ]off
+     mesh =    xyz            # mesh type is xyz scoring mesh
+   x-type =      2            # x-mesh is linear given by xmin, xmax and nx
+     xmin =    -37.8854       # minimum value of x-mesh points
+     xmax =     37.8854       # maximum value of x-mesh points
+       nx =     60            # number of x-mesh points
+   y-type =      1            # y-mesh is given by the below data
+       ny =      1            # number of y-mesh points
+           -24.56301  24.56301
+   z-type =      2            # z-mesh is linear given by zmin, zmax and nz
+     zmin =    -98.00236      # minimum value of z-mesh points
+     zmax =     98.00236      # maximum value of z-mesh points
+       nz =    180            # number of z-mesh points
+     axis =     xz            # axis of output
+     file = MRCP-AM_dosevisualization.dat  # file name of output for the above axis
+    ginfo =      0            # (D=0) 0:no, 1:show in graph, 2:add file
+    resol =     15            # (D=1) resolution of gshow or rshow
+    width =   0.01            # (D=0.5) width of lines for gshow or rshow
+   epsout =      1            # (D=0) generate eps file by ANGEL
+   unit = 0
+
+[ T - 4 D t r a c k ] off
+     file = 4Dtrack.out     # file name of output
+  HistoryMax = 20           # maximum history for drawing tracks
+
+[ T - 3Dshow ] off
+    title = [t-3dshow: icnt = 11]
+     file = varian-3D.out      # file name of output
+       x0 =  10.000000       # (D=0.0) x-coordinate of the origin
+       y0 =  10.000000       # (D=0.0) y-coordinate of the origin
+       z0 =  20.000000       # (D=0.0) z-coordinate of the origin
+    e-the =  90.0000       # (D=80.0) eye point theta(degree) from z-axis
+    e-phi =  130.00000       # (D=140.0) eye point phi(degree) from z-axis
+    l-the =  1.0000       # (D=e-the) light point theta from z-axis
+    l-phi =  1.00000       # (D=e-phi) light point phi from z-axis
+    l-dst = 100
+    w-wdt =  80.0000       # (D=100) width of window (cm)
+    w-hgt =  80.00000       # (D=100) hight of window (cm)
+    w-dst =  80.00000       # (D=200) window distance from origin
+    w-mnw =  50            # (D=100) mesh number of window width
+    w-mnh =  50            # (D=100) mesh number of window hight
+   heaven =    z            # (D=y) direction to heaven
+   mirror = -1
+    w-ang =  1.000000       # (D=0.0) angle of frame (degree)
+   bright = 1.0000000       # (D=0.8) top brightness
+     dark = 0.2000000       # (D=0.2) bottom darkness
+    resol =   10           # (D=1) resolution of 3dshow
+    width = 0.1000000       # (D=0.5) width of lines for 3dshow
+    r-out =  50000.00       # (D=50000) radius of outer sphere
+   output =    3            # (D=3) 0:draft, 1:line, 2:col, 3:line+col
+     line =    0            # (D=0) 0:surface+mat, 1:+region
+   shadow =    1            # (D=0) 0:no, 1:shadow
+   epsout =    1            # (D=0) generate eps file by ANGEL
+
+[ T - Deposit ]
+   title = TLD dose (Gy/sec)
+   mesh  = reg
+    reg  = 601 603 604 605 606 607 608 609 610 611 612 613 614 615 
+    616 617 618 619 620 621 622 623 624 625 626 627 628 629 630 631 
+    632 633 634 635 636 637 638 639 640 641 
+   axis  = reg
+material = all
+  output = dose
+    file = TLDdose.out
+    unit = 0
