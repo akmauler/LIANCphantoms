@@ -24,5 +24,7 @@ Each phantom directory contains four subdirectories corresponding to the specifi
 | **Mesh** | `mesh-field1`, `mesh-field2`, `mesh-field3`, `mesh-field4` |
 | **Voxel** | `voxel-field1`, `voxel-field2`, `voxel-field3`, `voxel-field4` |
 
+The voxel can be found in ICRP 110: https://www.icrp.org/publication.asp?id=ICRP%20Publication%20110 and the mesh phantom can be found in ICRP 145: https://www.icrp.org/publication.asp?id=ICRP%20Publication%20145.
+
 ---
 *Maintained by [akmauler](https://github.com/akmauler)*
